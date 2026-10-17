@@ -103,6 +103,9 @@ export function Navbar() {
           >
             Book
           </Link>
+        </div>
+
+        <div className="flex items-center gap-2 lg:hidden">
           <button
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}

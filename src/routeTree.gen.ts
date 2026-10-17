@@ -10,9 +10,13 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthRouteImport } from './routes/auth'
 import { Route as EventsRouteImport } from './routes/events'
 import { Route as ExploreRouteImport } from './routes/explore'
 import { Route as ImpactRouteImport } from './routes/impact'
+import { Route as JoinRouteImport } from './routes/join'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as AdminArtistsRouteImport } from './routes/admin.artists'
 import { Route as ArtistsSlugRouteImport } from './routes/artists.$slug'
 import { Route as StoriesIndexRouteImport } from './routes/stories.index'
 import { Route as StoriesSlugRouteImport } from './routes/stories.$slug'
@@ -20,6 +24,11 @@ import { Route as StoriesSlugRouteImport } from './routes/stories.$slug'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EventsRoute = EventsRouteImport.update({
@@ -35,6 +44,21 @@ const ExploreRoute = ExploreRouteImport.update({
 const ImpactRoute = ImpactRouteImport.update({
   id: '/impact',
   path: '/impact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JoinRoute = JoinRouteImport.update({
+  id: '/join',
+  path: '/join',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminArtistsRoute = AdminArtistsRouteImport.update({
+  id: '/admin/artists',
+  path: '/admin/artists',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ArtistsSlugRoute = ArtistsSlugRouteImport.update({
@@ -55,18 +79,26 @@ const StoriesSlugRoute = StoriesSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
   '/events': typeof EventsRoute
   '/explore': typeof ExploreRoute
   '/impact': typeof ImpactRoute
+  '/join': typeof JoinRoute
+  '/signup': typeof SignupRoute
+  '/admin/artists': typeof AdminArtistsRoute
   '/artists/$slug': typeof ArtistsSlugRoute
   '/stories/$slug': typeof StoriesSlugRoute
   '/stories/': typeof StoriesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
   '/events': typeof EventsRoute
   '/explore': typeof ExploreRoute
   '/impact': typeof ImpactRoute
+  '/join': typeof JoinRoute
+  '/signup': typeof SignupRoute
+  '/admin/artists': typeof AdminArtistsRoute
   '/artists/$slug': typeof ArtistsSlugRoute
   '/stories/$slug': typeof StoriesSlugRoute
   '/stories': typeof StoriesIndexRoute
@@ -74,9 +106,13 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
   '/events': typeof EventsRoute
   '/explore': typeof ExploreRoute
   '/impact': typeof ImpactRoute
+  '/join': typeof JoinRoute
+  '/signup': typeof SignupRoute
+  '/admin/artists': typeof AdminArtistsRoute
   '/artists/$slug': typeof ArtistsSlugRoute
   '/stories/$slug': typeof StoriesSlugRoute
   '/stories/': typeof StoriesIndexRoute
@@ -85,27 +121,39 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/auth'
     | '/events'
     | '/explore'
     | '/impact'
+    | '/join'
+    | '/signup'
+    | '/admin/artists'
     | '/artists/$slug'
     | '/stories/$slug'
     | '/stories/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/auth'
     | '/events'
     | '/explore'
     | '/impact'
+    | '/join'
+    | '/signup'
+    | '/admin/artists'
     | '/artists/$slug'
     | '/stories/$slug'
     | '/stories'
   id:
     | '__root__'
     | '/'
+    | '/auth'
     | '/events'
     | '/explore'
     | '/impact'
+    | '/join'
+    | '/signup'
+    | '/admin/artists'
     | '/artists/$slug'
     | '/stories/$slug'
     | '/stories/'
@@ -113,9 +161,13 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthRoute: typeof AuthRoute
   EventsRoute: typeof EventsRoute
   ExploreRoute: typeof ExploreRoute
   ImpactRoute: typeof ImpactRoute
+  JoinRoute: typeof JoinRoute
+  SignupRoute: typeof SignupRoute
+  AdminArtistsRoute: typeof AdminArtistsRoute
   ArtistsSlugRoute: typeof ArtistsSlugRoute
   StoriesSlugRoute: typeof StoriesSlugRoute
   StoriesIndexRoute: typeof StoriesIndexRoute
@@ -128,6 +180,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/events': {
@@ -149,6 +208,27 @@ declare module '@tanstack/react-router' {
       path: '/impact'
       fullPath: '/impact'
       preLoaderRoute: typeof ImpactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/join': {
+      id: '/join'
+      path: '/join'
+      fullPath: '/join'
+      preLoaderRoute: typeof JoinRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/artists': {
+      id: '/admin/artists'
+      path: '/admin/artists'
+      fullPath: '/admin/artists'
+      preLoaderRoute: typeof AdminArtistsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/artists/$slug': {
@@ -177,9 +257,13 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthRoute: AuthRoute,
   EventsRoute: EventsRoute,
   ExploreRoute: ExploreRoute,
   ImpactRoute: ImpactRoute,
+  JoinRoute: JoinRoute,
+  SignupRoute: SignupRoute,
+  AdminArtistsRoute: AdminArtistsRoute,
   ArtistsSlugRoute: ArtistsSlugRoute,
   StoriesSlugRoute: StoriesSlugRoute,
   StoriesIndexRoute: StoriesIndexRoute,

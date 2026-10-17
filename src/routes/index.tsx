@@ -408,6 +408,7 @@ function UpcomingEvents() {
 
 function StoriesSection() {
   const [lead, ...rest] = stories;
+  if (!lead) return null;
   return (
     <section className="border-y border-border bg-cream">
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
@@ -482,6 +483,7 @@ function ImpactSection() {
 
 function SuccessStory() {
   const meera = artists[0];
+  if (!meera) return null;
   return (
     <section className="border-y border-border bg-peach/50">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:px-8">

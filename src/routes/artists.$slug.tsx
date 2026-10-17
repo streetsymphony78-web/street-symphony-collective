@@ -2,12 +2,14 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Heart, MapPin, Play, Star, X } from "lucide-react";
 import { useState } from "react";
 import { artists } from "@/lib/data";
+import { getPublishedArtistBySlug } from "@/lib/artist-profiles";
 import { Reveal } from "@/components/site/Reveal";
 import botanical from "@/assets/botanical.png";
 
 export const Route = createFileRoute("/artists/$slug")({
-  loader: ({ params }) => {
-    const artist = artists.find((a) => a.slug === params.slug);
+  loader: async ({ params }) => {
+    const databaseArtist = await getPublishedArtistBySlug(params.slug);
+    const artist = databaseArtist ?? artists.find((item) => item.slug === params.slug);
     if (!artist) throw notFound();
     return { artist };
   },
