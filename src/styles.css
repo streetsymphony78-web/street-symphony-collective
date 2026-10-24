@@ -46,7 +46,7 @@
   --color-rose: var(--rose);
   --color-peach: var(--peach);
 
-  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-display: "BBH Hegarty", sans-serif;
   --font-body: "Karla", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Fraunces", Georgia, serif;
 }
@@ -98,10 +98,32 @@
   }
 
   body {
+    position: relative;
+    isolation: isolate;
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: min(32vw, 28rem);
+    max-width: 33vw;
+    background-image: url("/ornament-left.svg");
+    background-repeat: repeat-y;
+    background-position: left top;
+    background-size: 100% auto;
+    opacity: 0.96;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  body > * {
+    position: relative;
+    z-index: 1;
   }
 
   /* Subtle paper grain over everything */

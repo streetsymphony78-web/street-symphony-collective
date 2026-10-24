@@ -95,13 +95,15 @@ function ArtistProfile() {
             </p>
 
             <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3 border-y border-border py-4 text-sm">
-              <div>
-                <p className="flex items-center gap-1 font-display text-2xl font-bold">
-                  <Star className="h-4 w-4 fill-primary text-primary" aria-hidden />
-                  {artist.rating}
-                </p>
-                <p className="text-xs text-muted-foreground">{artist.reviewCount} reviews</p>
-              </div>
+              {artist.reviewCount > 0 && (
+                <div>
+                  <p className="flex items-center gap-1 font-display text-2xl font-bold">
+                    <Star className="h-4 w-4 fill-primary text-primary" aria-hidden />
+                    {artist.rating}
+                  </p>
+                  <p className="text-xs text-muted-foreground">{artist.reviewCount} reviews</p>
+                </div>
+              )}
               <div>
                 <p className="font-display text-2xl font-bold">{artist.experienceYears} yrs</p>
                 <p className="text-xs text-muted-foreground">Performing</p>
@@ -278,25 +280,31 @@ function ArtistProfile() {
           {tab === "Reviews" && (
             <section>
               <h2 className="headline text-3xl">Reviews</h2>
-              <p className="mt-2 text-muted-foreground">
-                {artist.rating} average from {artist.reviewCount} verified bookings.
-              </p>
-              <div className="mt-6 space-y-4">
-                {artist.reviews.map((r) => (
-                  <figure key={r.name} className="rounded-2xl border border-border bg-card p-6">
-                    <div className="flex gap-0.5" aria-label="5 out of 5 stars">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <Star key={i} className="h-4 w-4 fill-primary text-primary" aria-hidden />
-                      ))}
-                    </div>
-                    <blockquote className="mt-3 font-serif text-lg italic leading-relaxed">“{r.quote}”</blockquote>
-                    <figcaption className="mt-3 text-sm">
-                      <span className="font-semibold">{r.name}</span>
-                      <span className="text-muted-foreground"> · {r.role}</span>
-                    </figcaption>
-                  </figure>
-                ))}
-              </div>
+              {artist.reviews.length > 0 ? (
+                <>
+                  <p className="mt-2 text-muted-foreground">
+                    {artist.rating} average from {artist.reviewCount} verified bookings.
+                  </p>
+                  <div className="mt-6 space-y-4">
+                    {artist.reviews.map((r) => (
+                      <figure key={r.name} className="rounded-2xl border border-border bg-card p-6">
+                        <div className="flex gap-0.5" aria-label="5 out of 5 stars">
+                          {Array.from({ length: 5 }).map((_, i) => (
+                            <Star key={i} className="h-4 w-4 fill-primary text-primary" aria-hidden />
+                          ))}
+                        </div>
+                        <blockquote className="mt-3 font-serif text-lg italic leading-relaxed">“{r.quote}”</blockquote>
+                        <figcaption className="mt-3 text-sm">
+                          <span className="font-semibold">{r.name}</span>
+                          <span className="text-muted-foreground"> · {r.role}</span>
+                        </figcaption>
+                      </figure>
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <p className="mt-2 text-muted-foreground">No reviews yet.</p>
+              )}
             </section>
           )}
         </div>

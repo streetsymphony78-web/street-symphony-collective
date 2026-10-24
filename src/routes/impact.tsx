@@ -101,18 +101,22 @@ function ImpactPage() {
                   </p>
                   <blockquote className="mt-5 font-serif text-xl italic leading-relaxed">“{a.story[0]}”</blockquote>
                   <div className="mt-6 flex flex-wrap gap-6 border-t border-border pt-4 text-sm">
-                    <div>
-                      <p className="font-display text-2xl font-bold text-primary">{a.reviewCount}</p>
-                      <p className="text-xs text-muted-foreground">Bookings completed</p>
-                    </div>
+                    {a.reviewCount > 0 && (
+                      <div>
+                        <p className="font-display text-2xl font-bold text-primary">{a.reviewCount}</p>
+                        <p className="text-xs text-muted-foreground">Bookings completed</p>
+                      </div>
+                    )}
                     <div>
                       <p className="font-display text-2xl font-bold text-primary">{a.experienceYears} yrs</p>
                       <p className="text-xs text-muted-foreground">Practising the form</p>
                     </div>
-                    <div>
-                      <p className="font-display text-2xl font-bold text-primary">{a.rating}</p>
-                      <p className="text-xs text-muted-foreground">Average rating</p>
-                    </div>
+                    {a.reviewCount > 0 && (
+                      <div>
+                        <p className="font-display text-2xl font-bold text-primary">{a.rating}</p>
+                        <p className="text-xs text-muted-foreground">Average rating</p>
+                      </div>
+                    )}
                   </div>
                   <Link
                     to="/artists/$slug"

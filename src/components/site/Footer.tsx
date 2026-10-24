@@ -46,11 +46,11 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_2fr]">
           <div>
-            <p className="font-display text-5xl font-bold uppercase leading-[0.9] tracking-tight">
-              Street
-              <br />
-              <span className="text-brick">Symphony</span>
-            </p>
+            <img
+              src="/street-symphony-logo.png"
+              alt="Street Symphony"
+              className="h-20 w-auto max-w-full object-contain sm:h-24"
+            />
             <p className="mt-4 max-w-xs font-serif italic text-cream/80">
               “Discover the voices that make India sing.”
             </p>

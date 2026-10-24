@@ -40,6 +40,12 @@ export interface Review {
   quote: string;
 }
 
+export const reviewTemplate: Review = {
+  name: "",
+  role: "",
+  quote: "",
+};
+
 export interface Artist {
   slug: string;
   name: string;
@@ -91,17 +97,14 @@ export const artists: Artist[] = [
     available: true,
     availabilityNote: "Available for bookings",
     availableDays: [3, 7, 8, 14, 15, 21, 22, 28],
-    rating: 4.9,
-    reviewCount: 34,
+    rating: 0,
+    reviewCount: 0,
     experienceYears: 22,
     languages: ["Hindi", "Marwari", "Urdu"],
     availableFor: ["Weddings", "Festivals", "Cultural programmes", "Corporate events", "Private events"],
     formats: ["Solo", "Ensemble (3–5)", "With amplification", "Acoustic courtyard set"],
     portfolio: [artistMeera, heroPerformance, heroInstrument, eventCourtyard],
-    reviews: [
-      { name: "Sana Kapoor", role: "Wedding client, Udaipur", quote: "Meera ji didn't perform at our wedding — she transformed it. Guests are still talking about the final kalam." },
-      { name: "Heritage Hotels Group", role: "Corporate client", quote: "Professional, punctual, and utterly spellbinding. We have booked her ensemble four times." },
-    ],
+    reviews: [],
     featured: true,
     quote: "People had been listening to us for years. Now they know where to find us.",
   },
@@ -125,17 +128,14 @@ export const artists: Artist[] = [
     available: true,
     availabilityNote: "Available from next week",
     availableDays: [5, 6, 12, 13, 19, 20, 26, 27],
-    rating: 4.8,
-    reviewCount: 27,
+    rating: 0,
+    reviewCount: 0,
     experienceYears: 14,
     languages: ["Bengali", "Hindi", "English"],
     availableFor: ["Festivals", "Cafés", "Cultural programmes", "Schools", "Private events"],
     formats: ["Solo with ektara", "Duo with percussion", "Unplugged"],
     portfolio: [artistArindam, storyTrain, eventFestival, heroAudience],
-    reviews: [
-      { name: "Prithvi Banerjee", role: "Festival director, Kolkata", quote: "He had 3,000 people singing along to a 200-year-old mystic poem. Extraordinary." },
-      { name: "Café Mondegar", role: "Café partner, Mumbai", quote: "Our quietest Tuesday became our busiest night. His audience follows him everywhere." },
-    ],
+    reviews: [],
     featured: true,
   },
   {
@@ -158,16 +158,14 @@ export const artists: Artist[] = [
     available: false,
     availabilityNote: "Next available: late October",
     availableDays: [24, 25, 26, 30, 31],
-    rating: 5.0,
-    reviewCount: 19,
+    rating: 0,
+    reviewCount: 0,
     experienceYears: 18,
     languages: ["Malayalam", "English", "Hindi"],
     availableFor: ["Festivals", "Cultural programmes", "Corporate events", "Workshops"],
     formats: ["Solo classical", "Lecture-demonstration", "Workshop (half-day)"],
     portfolio: [artistKavya, storyDance, heroPerformance, eventCourtyard],
-    reviews: [
-      { name: "Kerala Arts Council", role: "Institutional partner", quote: "A custodian of the form with the rare gift of making it legible to first-time audiences." },
-    ],
+    reviews: [],
     featured: true,
   },
   {
@@ -190,17 +188,14 @@ export const artists: Artist[] = [
     available: true,
     availabilityNote: "Available for bookings",
     availableDays: [2, 6, 9, 13, 16, 20, 23, 27, 30],
-    rating: 4.9,
-    reviewCount: 41,
+    rating: 0,
+    reviewCount: 0,
     experienceYears: 16,
     languages: ["Marathi", "Hindi", "English"],
     availableFor: ["Festivals", "Weddings", "Schools", "Corporate events", "Workshops"],
     formats: ["Procession set", "Stage show", "Rhythm workshop", "Flash-mob style"],
     portfolio: [artistRavi, eventWorkshop, heroInstrument, eventFestival],
-    reviews: [
-      { name: "Vidya Mandir School", role: "School partner, Pune", quote: "Two hundred children, forty minutes, zero boredom. Teachers still talk about it." },
-      { name: "Nikhil & Priya", role: "Wedding clients", quote: "The baraat stopped traffic and started a second party. Worth every rupee." },
-    ],
+    reviews: [],
     featured: true,
   },
   {
@@ -223,16 +218,14 @@ export const artists: Artist[] = [
     available: true,
     availabilityNote: "Available for bookings",
     availableDays: [4, 10, 11, 17, 18, 24, 25],
-    rating: 4.7,
-    reviewCount: 22,
+    rating: 0,
+    reviewCount: 0,
     experienceYears: 11,
     languages: ["Hindi", "Urdu", "English"],
     availableFor: ["NGOs", "Schools", "Festivals", "Corporate events", "Cultural programmes"],
     formats: ["20-min nukkad", "Full-length street play", "Issue-based custom script"],
     portfolio: [artistFarah, heroAudience, storyTrain, heroPerformance],
-    reviews: [
-      { name: "Swachh Mission, Delhi", role: "NGO partner", quote: "Her troupe did more for our campaign in one afternoon than our posters did in a year." },
-    ],
+    reviews: [],
   },
   {
     slug: "dev-joshi",
@@ -254,16 +247,14 @@ export const artists: Artist[] = [
     available: true,
     availabilityNote: "Available from tomorrow",
     availableDays: [1, 2, 8, 9, 15, 16, 22, 23, 29, 30],
-    rating: 4.9,
-    reviewCount: 38,
+    rating: 0,
+    reviewCount: 0,
     experienceYears: 40,
     languages: ["Gujarati", "Hindi"],
     availableFor: ["Schools", "Festivals", "Private events", "Cultural programmes", "Workshops"],
     formats: ["Classic kathputli show", "Puppet-making workshop", "Roaming characters"],
     portfolio: [artistDev, storyPuppets, heroAudience, eventWorkshop],
-    reviews: [
-      { name: "Riverfront School", role: "School partner, Ahmedabad", quote: "The children made their own puppets after the show. Six months later they still perform them." },
-    ],
+    reviews: [],
     featured: true,
   },
   {
@@ -286,16 +277,14 @@ export const artists: Artist[] = [
     available: false,
     availabilityNote: "Next available: mid October",
     availableDays: [18, 19, 25, 26],
-    rating: 4.8,
-    reviewCount: 16,
+    rating: 0,
+    reviewCount: 0,
     experienceYears: 9,
     languages: ["Urdu", "Hindi", "English"],
     availableFor: ["Festivals", "Cafés", "Schools", "Cultural programmes", "Private events"],
     formats: ["Full dastan", "Folk tale set", "Commissioned biography"],
     portfolio: [artistAnanya, storyArchive, heroAudience, storyTrain],
-    reviews: [
-      { name: "Lucknow Literature Festival", role: "Festival partner", quote: "She held a restless evening crowd in complete silence for ninety minutes. Rare, rare craft." },
-    ],
+    reviews: [],
   },
   {
     slug: "manoj-gowda",
@@ -317,16 +306,14 @@ export const artists: Artist[] = [
     available: true,
     availabilityNote: "Available for bookings",
     availableDays: [3, 4, 10, 11, 17, 18, 24, 31],
-    rating: 4.8,
-    reviewCount: 24,
+    rating: 0,
+    reviewCount: 0,
     experienceYears: 26,
     languages: ["Kannada", "English", "Hindi"],
     availableFor: ["Festivals", "Schools", "Cultural programmes", "Corporate events"],
     formats: ["Condensed episode (45 min)", "Full troupe night show", "Costume & makeup demo"],
     portfolio: [artistManoj, eventFestival, storyDance, heroPerformance],
-    reviews: [
-      { name: "South India Culture Fest", role: "Festival director", quote: "Audiences arrived curious and left converted. His makeup demo alone is worth the booking." },
-    ],
+    reviews: [],
   },
 ];
 
@@ -616,39 +603,14 @@ export interface Testimonial {
   tone: "cream" | "rose" | "peach";
 }
 
-export const testimonials: Testimonial[] = [
-  {
-    name: "Meera Rathore",
-    role: "Rajasthani Folk Artist, Jaipur",
-    quote: "For the first time in my family's four generations of singing, we have a diary full of stages instead of a hope full of maybes.",
-    image: artistMeera,
-    tone: "cream",
-  },
-  {
-    name: "Vikram Mehta",
-    role: "Event Organiser, Mumbai",
-    quote: "I booked three artists in one afternoon. The portfolios told me exactly what I was getting — and the performances exceeded them.",
-    tone: "rose",
-  },
-  {
-    name: "Dr. Nandini Iyer",
-    role: "Cultural Institution, Chennai",
-    quote: "Street Symphony does what institutions struggle to do: it finds artists where they actually live and presents them with genuine dignity.",
-    tone: "peach",
-  },
-  {
-    name: "Sister Margaret D'Souza",
-    role: "School Principal, Kochi",
-    quote: "Kavya's workshop taught our students more about Kerala's heritage in one morning than a term of textbooks.",
-    tone: "cream",
-  },
-  {
-    name: "Rohan Chatterjee",
-    role: "Audience Member, Kolkata",
-    quote: "I came for a riverside concert and left knowing the names of songs my grandfather used to hum. I didn't know I was looking for that.",
-    tone: "rose",
-  },
-];
+export const testimonialTemplate: Testimonial = {
+  name: "",
+  role: "",
+  quote: "",
+  tone: "cream",
+};
+
+export const testimonials: Testimonial[] = [];
 
 /* ---------------- Impact ---------------- */
 

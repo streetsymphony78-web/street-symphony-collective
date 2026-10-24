@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { MapPin, Search } from "lucide-react";
 import { useState } from "react";
-import { artists, events, images, impactStats, regions, stories, testimonials } from "@/lib/data";
+import { artists, events, images, impactStats, stories, testimonials } from "@/lib/data";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { ArtistCard } from "@/components/site/ArtistCard";
@@ -9,7 +9,6 @@ import { EventCard } from "@/components/site/EventCard";
 import { StoryCard } from "@/components/site/StoryCard";
 import { Chip, StatBlock } from "@/components/site/ui";
 import botanical from "@/assets/botanical.png";
-import mapIndia from "@/assets/map-india.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -43,7 +42,6 @@ function HomePage() {
       <FeaturedArtists />
       <CulturalStatement />
       <HowItWorks />
-      <ArtistsAcrossIndia />
       <UpcomingEvents />
       <StoriesSection />
       <ImpactSection />
@@ -322,54 +320,6 @@ function HowItWorks() {
   );
 }
 
-/* ---------------- Artists across India ---------------- */
-
-function ArtistsAcrossIndia() {
-  return (
-    <section className="border-y border-border bg-cream">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:px-8">
-        <Reveal className="relative order-2 lg:order-1">
-          <div className="relative mx-auto max-w-md">
-            <img src={mapIndia} alt="Stylised hand-drawn map of India with artist location markers" loading="lazy" width={768} height={1024} className="w-full" />
-            <span className="absolute left-[30%] top-[38%] h-3 w-3 rounded-full bg-primary animate-pulse-dot" aria-hidden />
-            <span className="absolute left-[45%] top-[55%] h-3 w-3 rounded-full bg-burnt animate-pulse-dot" style={{ animationDelay: "0.6s" }} aria-hidden />
-            <span className="absolute left-[38%] top-[75%] h-3 w-3 rounded-full bg-sage animate-pulse-dot" style={{ animationDelay: "1.2s" }} aria-hidden />
-          </div>
-        </Reveal>
-        <Reveal className="order-1 lg:order-2">
-          <SectionHeading
-            eyebrow="Artists across India"
-            title={
-              <>
-                Every region has <span className="text-primary">a voice.</span>
-              </>
-            }
-            description="From Manganiyar ballads in the Thar to Baul songs on the Hooghly — discover artists by region and tradition."
-          />
-          <ul className="mt-8 grid grid-cols-1 gap-2 sm:grid-cols-2">
-            {regions.map((r) => (
-              <li key={r.name}>
-                <Link
-                  to="/explore"
-                  className="group flex items-center justify-between rounded-xl border border-border bg-background px-4 py-3 transition-colors hover:border-primary"
-                >
-                  <div className="min-w-0">
-                    <p className="truncate font-semibold">{r.name}</p>
-                    <p className="truncate text-xs text-muted-foreground">{r.specialty}</p>
-                  </div>
-                  <span className="shrink-0 rounded-full bg-accent px-2.5 py-1 text-xs font-semibold text-accent-foreground">
-                    {r.artists}
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
 /* ---------------- Events ---------------- */
 
 function UpcomingEvents() {
@@ -535,6 +485,8 @@ const toneClass: Record<string, string> = {
 };
 
 function TestimonialsSection() {
+  if (testimonials.length === 0) return null;
+
   return (
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
       <Reveal>

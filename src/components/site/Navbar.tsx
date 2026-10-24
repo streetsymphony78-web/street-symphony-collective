@@ -27,16 +27,17 @@ export function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-md transition-shadow ${
+      className={`sticky top-0 z-50 border-b border-cream/20 bg-cocoa/90 text-cream backdrop-blur-md transition-shadow ${
         scrolled ? "shadow-[0_6px_24px_-12px_rgba(42,33,29,0.25)]" : ""
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="group flex items-baseline gap-1" aria-label="Street Symphony home">
-          <span className="font-display text-2xl font-bold uppercase leading-none tracking-tight">
-            Street<span className="text-primary"> Symphony</span>
-          </span>
-          <span className="hidden h-1.5 w-1.5 rounded-full bg-primary sm:inline-block" aria-hidden />
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-4 sm:h-24 sm:px-6 lg:px-8">
+        <Link to="/" className="group flex items-center" aria-label="Street Symphony home">
+          <img
+            src="/street-symphony-logo.png"
+            alt="Street Symphony"
+            className="h-12 w-auto max-w-[280px] object-contain sm:h-16"
+          />
         </Link>
 
         <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
@@ -45,8 +46,8 @@ export function Navbar() {
               key={l.to}
               to={l.to}
               activeOptions={{ exact: l.to === "/" }}
-              className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
-              activeProps={{ className: "text-primary font-semibold" }}
+              className="text-sm font-medium text-cream/80 transition-colors hover:text-cream"
+              activeProps={{ className: "text-cream font-semibold" }}
             >
               {l.label}
             </Link>
@@ -58,7 +59,7 @@ export function Navbar() {
             <>
               <Link
                 to="/dashboard"
-                className="rounded-full px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:text-primary"
+                className="rounded-full px-4 py-2 text-sm font-semibold text-cream transition-colors hover:text-cream/80"
               >
                 Dashboard
               </Link>
@@ -67,7 +68,7 @@ export function Navbar() {
                   signOut();
                   navigate({ to: "/" });
                 }}
-                className="rounded-full border border-border px-4 py-2 text-sm font-semibold transition-colors hover:bg-accent"
+                className="rounded-full border border-cream/25 px-4 py-2 text-sm font-semibold text-cream transition-colors hover:bg-cream/10"
               >
                 Log out
               </button>
@@ -76,13 +77,13 @@ export function Navbar() {
             <>
               <Link
                 to="/auth"
-                className="rounded-full px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:text-primary"
+                className="rounded-full px-4 py-2 text-sm font-semibold text-cream transition-colors hover:text-cream/80"
               >
                 Log In
               </Link>
               <Link
                 to="/join"
-                className="rounded-full border border-cocoa/30 px-4 py-2 text-sm font-semibold transition-colors hover:border-primary hover:text-primary"
+                className="rounded-full border border-cream/30 px-4 py-2 text-sm font-semibold text-cream transition-colors hover:border-cream hover:bg-cream/10"
               >
                 Join Us
               </Link>
@@ -110,7 +111,7 @@ export function Navbar() {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            className="rounded-full border border-border p-2"
+            className="rounded-full border border-cream/25 p-2 text-cream"
           >
             {open ? <Menu className="hidden" /> : null}
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
